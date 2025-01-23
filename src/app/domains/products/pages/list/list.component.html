@@ -1,33 +1,11 @@
-<div class="grid grid-cols-3 gap-4 mx-8 mt-2 ">
-  <app-product
-    [title]="'producto 1'"
-    [price]="122"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-    (addToCart)="fromChild($event)"
-  />
-  <app-product
-    [title]="'producto 2'"
-    [price]="152"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-  />
-  <app-product
-    [title]="'producto 3'"
-    [price]="162"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-  />
-  <app-product
-    [title]="'producto 4'"
-    [price]="182"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-  />
-  <app-product
-    [title]="'producto 5'"
-    [price]="132"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-  />
-  <app-product
-    [title]="'producto 6'"
-    [price]="12"
-    img="https://miro.medium.com/v2/resize:fit:1400/0*jdVz7JeGUP3NMLDO.png"
-  />
-</div>
+<div class="grid grid-cols-4 gap-4 mx-4 mt-8 ">
+    <!-- Renderizar productos dinámicamente -->
+    <app-product
+      *ngFor="let product of products"
+      [img]="product.image"
+      [title]="product.title"
+      [price]="product.price"
+      (addToCart)="fromChild($event)"
+    ></app-product>
+  </div>
+  
