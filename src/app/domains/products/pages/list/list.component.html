@@ -1,11 +1,16 @@
-<div class="grid grid-cols-4 gap-4 mx-4 mt-8 ">
-    <!-- Renderizar productos dinámicamente -->
-    <app-product
-      *ngFor="let product of products"
-      [img]="product.image"
-      [title]="product.title"
-      [price]="product.price"
-      (addToCart)="fromChild($event)"
-    ></app-product>
-  </div>
+<div class="container mx-auto">
+
+  <app-header [cart]="cart()"/> 
+ 
+  <div class="grid grid-cols-4 gap-4  mt-4 ">
+      <!-- Renderizar productos dinámicamente -->
+      <app-product
+        *ngFor="let product of products"
+        [img]="product.image"
+        [title]="product.title"
+        [price]="product.price"
+        (addToCart)="addToCart($event)"
+      />
+    </div>
+</div>
   

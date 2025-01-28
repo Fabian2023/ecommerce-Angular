@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import{HeaderComponent} from "../../../shared/components/header/header.component"
 import { ProductComponent } from '../../components/product/product.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
   products: any[] = []; // Lista para almacenar productos obtenidos
+  cart = signal<any[]>([]); // Lista para almacenar productos agregados al carro
 
   ngOnInit(): void {
     this.fetchProducts(); // Llamar a la API al inicializar el componente
@@ -29,7 +31,7 @@ export class ListComponent implements OnInit {
       .catch(error => console.error('Error fetching products:', error));
   }
 
-  fromChild(event: string): void {
-    console.log('Evento recibido desde el hijo:', event);
+  addToCart(event: any): void {
+    this.cart.update(prevState => [...prevState, event]); // Agregar el producto al carro
   }
 }
