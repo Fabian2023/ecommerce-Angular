@@ -20,16 +20,18 @@ export class ListComponent implements OnInit {
 
   // Función para obtener los productos de la API
   private fetchProducts(): void {
-    fetch('https://fakestoreapi.in/api/products?limit=150') // Cambié la URL para que sea correcta
+    fetch('https://dummyjson.com/products?limit=0')
       .then(response => response.json())
       .then(data => {
-        console.log(data); // Agregar un console.log para inspeccionar la respuesta
+        console.log(data);
         if (data && Array.isArray(data.products)) {
-          this.products = data.products; // Acceder a la propiedad 'products' y asignarla a la lista de productos
+          this.products = data.products; // Guardar todos los productos en la variable
         }
       })
       .catch(error => console.error('Error fetching products:', error));
   }
+  
+  
 
   addToCart(event: any): void {
     this.cart.update(prevState => [...prevState, event]); // Agregar el producto al carro

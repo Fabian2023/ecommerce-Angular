@@ -83,6 +83,8 @@
     </button>
   </div>
   <div *ngFor ="let any of cart">
+    <img [src]="any.img" [alt]="any.title" class="w-20 h-20 object-cover" />
+
     <p>{{any.title}}</p>
     <p>{{any.price}}</p>
 
