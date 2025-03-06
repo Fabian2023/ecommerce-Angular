@@ -20,7 +20,7 @@ export class ListComponent implements OnInit {
 
   // Función para obtener los productos de la API
   private fetchProducts(): void {
-    fetch('https://dummyjson.com/products?limit=0')
+    fetch('https://fakestoreapi.in/api/products?limit=150')
       .then(response => response.json())
       .then(data => {
         console.log(data);

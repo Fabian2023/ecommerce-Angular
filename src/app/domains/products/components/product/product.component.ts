@@ -18,3 +18,4 @@ export class ProductComponent {
     this.addToCart.emit(product);
   }
 }
+
